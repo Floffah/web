@@ -1,0 +1,36 @@
+{
+  "name": "Floffah's website",
+  "short_name": "Floffah",
+  "start_url": "/?ref=.pwa",
+  "description": "Floffah's personal website showing information about all of his projects and work",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#141414",
+  "background_color": "#141414",
+  "display": "standalone",
+  "scope": "/",
+  "shortcuts": [
+    {
+      "name": "Floffah's projects",
+      "short_name": "Projects",
+      "description": "See all of Floffah's current projects",
+      "url": "/?ref=.pwa&sview=projects",
+      "icons": [
+        {
+          "src": "/android-chrome-192x192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
+}
