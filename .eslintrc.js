@@ -7,7 +7,7 @@ module.exports = {
         "plugin:@typescript-eslint/recommended",
         "plugin:react/recommended",
         "prettier",
-        "plugin:@typescript-eslint/recommended",
+        "next",
     ],
     globals: {
         JSX: "readonly",
