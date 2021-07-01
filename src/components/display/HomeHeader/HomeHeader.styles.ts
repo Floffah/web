@@ -1,7 +1,7 @@
 import styled, { ThemeProps } from "styled-components";
 import Image from "next/image";
-import { shift } from "../../lib/themes/resolve";
-import { Theme } from "../../lib/themes/theme";
+import { shift } from "../../../lib/themes/resolve";
+import { Theme } from "../../../lib/themes/theme";
 
 export const HomeHeaderBG = (props: ThemeProps<Theme>) =>
     shift(props.theme.shiftback, 0.025, props.theme.back);
@@ -34,9 +34,9 @@ export const HomeHeaderContainer = styled.div<ThemeProps<Theme>>`
 
 export const HomeHeaderMiddleContent = styled.div`
     position: relative;
-    top: 100px;
+    top: 101px;
     margin: auto;
-    width: 60%;
+    width: fit-content;
 `;
 
 export const HeaderImage = styled(Image)`
@@ -45,10 +45,9 @@ export const HeaderImage = styled(Image)`
 
 export const HeaderTitles = styled.div`
     display: inline-block;
-    margin: 0;
+    vertical-align: top;
+    margin: 53px 0 0 20px;
     position: relative;
-    top: -40px;
-    left: 20px;
 
     h1 {
         margin: 0;
@@ -56,9 +55,14 @@ export const HeaderTitles = styled.div`
 
     p {
         position: relative;
-        top: -5px;
-        left: 1px;
-        margin: 0;
+        margin: 0 0 0 1px;
+        top: -10px;
         font-size: 20px;
     }
+`;
+
+export const HeaderButtons = styled.div`
+    display: inline-block;
+    vertical-align: top;
+    margin: 79px 0 0 10px;
 `;

@@ -17,6 +17,7 @@
     "babel-plugin-polished",
     "@babel/plugin-transform-react-jsx",
     "babel-plugin-transform-merge-sibling-variables",
-    "@babel/plugin-transform-reserved-words"
+    "@babel/plugin-transform-reserved-words",
+    "graphql-tag"
   ]
 }

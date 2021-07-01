@@ -1,13 +1,15 @@
-import { AppProps } from "next/app";
 import React from "react";
 import { DefaultSeo } from "next-seo";
 import { ApplyGlobalStyles } from "../lib/themes/styles";
 import { OneDarkTheme } from "../lib/themes/one-dark";
+import { withTRPC } from "@trpc/next";
+import { AppType } from "next/dist/next-server/lib/utils";
 
-const App: React.FC<AppProps> = (p) => (
+const App: AppType = (p) => (
     <>
         <DefaultSeo
-            title="Floffah"
+            titleTemplate="%s | Floffah"
+            defaultTitle="Floffah"
             description="Floffah's personal site"
             openGraph={{
                 locale: "en",
@@ -16,16 +18,16 @@ const App: React.FC<AppProps> = (p) => (
                 site_name: "Floffah",
                 images: [
                     {
-                        url: "/favicon.ico",
-                        width: 48,
-                        height: 48,
-                        alt: "Favicon",
-                    },
-                    {
                         url: "/android-chrome-192x192.png",
                         width: 192,
                         height: 192,
                         alt: "Android Chrome 192x icon",
+                    },
+                    {
+                        url: "/favicon.ico",
+                        width: 48,
+                        height: 48,
+                        alt: "Favicon",
                     },
                     {
                         url: "/android-chrome-512x512.png",
@@ -60,4 +62,21 @@ const App: React.FC<AppProps> = (p) => (
     </>
 );
 
-export default App;
+export default withTRPC({
+    config: (_ctx) => {
+        const url = process.env.VERCEL_URL
+            ? `https://${process.env.VERCEL_URL}/api/trpc`
+            : "http://localhost:3000/api/trpc";
+
+        return {
+            url,
+            queryClientConfig: {
+                defaultOptions: {
+                    queries: {
+                        staleTime: 600,
+                    },
+                },
+            },
+        };
+    },
+})(App);
